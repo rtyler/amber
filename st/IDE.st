@@ -513,7 +513,8 @@ compile
 	ifFalse: [
 			(selectedProtocol notNil or: [selectedMethod notNil])
 				ifFalse: [self compileDefinition]
-				ifTrue: [self compileMethodDefinition]]
+				ifTrue: [self compileMethodDefinition]].
+	(window jQuery: document) trigger: 'onAmberBrowserSave'.
 !
 
 compileClassComment
@@ -768,8 +769,8 @@ initialize
 ajaxPutAt: anURL data: aString
 	jQuery 
 		ajax: anURL	options: #{	'type' -> 'PUT'.
-                                'contentType' -> 'application/json'.
 								'data' -> aString.
+								'contentType' -> 'application/json'.
 								'error' -> [window alert: 'PUT request failed at:  ', anURL] }
 ! !
 
